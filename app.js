@@ -24,6 +24,8 @@ app.use(bodyParser.json());
 app.use('/users', require('./routes/users'));
 app.get('*', (req, res) => {
     res.send("Test FINAL API")
+    res.send("/api/users/signup")
+    res.send("/api/users/signin")
 });
 // Server init
 app.listen(process.env.PORT || 3000, function () {
