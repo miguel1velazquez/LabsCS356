@@ -7,9 +7,9 @@ const app = express();
 const db = require("./config/keys").mongoURI;
 
 mongoose.connect(db, {
-    // Getting error, added => to remove warning
-    //(node:20464) DeprecationWarning: collection.ensureIndex is deprecated.
-    useCreateIndex: true,
+        // Getting error, added => to remove warning
+        //(node:20464) DeprecationWarning: collection.ensureIndex is deprecated.
+        useCreateIndex: true,
         useNewUrlParser: true
     }).then(() => console.log("DB connected"))
     .catch(err => console.log(err))
@@ -24,8 +24,8 @@ app.use(bodyParser.json());
 app.use('/users', require('./routes/users'));
 app.get('*', (req, res) => {
     res.send("Test FINAL API")
-  });
+});
 // Server init
-const port = process.env.POST || 3000;
-app.listen(port)
-console.log(`Server PORT: ${port}`)
+app.listen(process.env.PORT || 3000, function () {
+    console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
+});
