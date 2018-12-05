@@ -6,8 +6,8 @@ const {
 const LocalStrategy = require("passport-local")
 const {
     JWT_SECRET
-} = require("./config/keys")
-const User = require("./models/user")
+} = require("./keys")
+const User = require("../models/user")
 
 
 // JWT STRATEGY
